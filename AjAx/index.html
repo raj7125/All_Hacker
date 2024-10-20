@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #signupResult { margin-top: 15px; color: red; }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#signupForm").on("submit", function(event) {
+            event.preventDefault();
+            const username = $("#username").val();
+            const password = $("#password").val();
+
+            if (!username || !password) {
+                $("#signupResult").text("Please enter both username and password.");
+                return;
+            }
+
+            $.ajax({
+                url: "/signup_endpoint", // Adjust to your backend endpoint
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ username, password }),
+                success: function(response) {
+                    $("#signupResult").css("color", response.success ? "green" : "red")
+                                      .text(response.message);
+                },
+                error: function() {
+                    $("#signupResult").text("Server error. Please try again later.");
+                }
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <h2>Signup</h2>
+    <form id="signupForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+        
+        <button type="submit">Signup</button>
+    </form>
+    
+    <p id="signupResult"></p>
+</body>
+</html>
