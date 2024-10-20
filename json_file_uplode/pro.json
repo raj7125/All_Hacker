@@ -1,0 +1,17 @@
+[
+    {
+        "title" : "momo",
+        "catagory" : "Food",
+        "price" : 10
+    },
+    {
+        "title" : "banana",
+        "catagory" : "fruit",
+        "price" : 15
+    },
+    {
+        "title" : "other",
+        "catagory" : "Fruits",
+        "price" : 20
+    }
+]
