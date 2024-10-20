@@ -1,0 +1,19 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- multipart/form-data for file upload -->
+    <form action="/run" method="post" enctype="multipart/form-data">
+        <input type="text" name="productname" id="productname" placeholder="Product Name"/>
+        <input type="number" name="price" id="price" placeholder="price">
+        <input type="file" name="pic" id="pic" placeholder="price" multiple>
+         <input type="submit" value="upload">
+    </form>
+</body>
+</html>
